@@ -61,7 +61,7 @@ class _VerifyOTPScreenState extends State<VerifyOTPScreen> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 15),
             Text(
               'Enter the verification code sent to your email:',
               style: TextStyle(
