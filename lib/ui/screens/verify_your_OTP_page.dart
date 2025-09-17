@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:task_manager/ui/screens/set_new_password_screen.dart';
 
 // Assume this is part of your existing VerifyOTPScreen widget
 class VerifyOTPScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _VerifyOTPScreenState extends State<VerifyOTPScreen> {
 
   // Function to handle OTP verification
   void _verifyPin() {
+    Navigator.pushReplacementNamed(context, PasswordSetupScreen.name);
     String pin = _pinPutController.text;
     // Your verification logic here
     print("Entered PIN: $pin");
@@ -51,10 +53,11 @@ class _VerifyOTPScreenState extends State<VerifyOTPScreen> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'OTP Verification',
+              '6-digit code',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -112,30 +115,25 @@ class _VerifyOTPScreenState extends State<VerifyOTPScreen> {
 
             const SizedBox(height: 32),
             // The Confirm button
-            ElevatedButton(
-              onPressed: _verifyPin, // Call verifyPin when confirm is pressed
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF84C000), // Button color
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: _verifyPin, // Call verifyPin when confirm is pressed
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF84C000), // Button color
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
-              ),
-              child: const Text(
-                'Confirm',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                child: const Text(
+                  'Confirm',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: _goBack, // Use _goBack to go to the previous screen
-              child: const Text(
-                'Get previous verify OTP page',
-                style: TextStyle(color: Colors.grey),
               ),
             ),
           ],
