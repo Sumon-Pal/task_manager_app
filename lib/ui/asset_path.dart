@@ -7,4 +7,6 @@ class AssetPath {
   static const String task_icon = "$_assetPath/task_icon.svg";
   static const String cardBackground = "$_assetPath/card_background.png";
   static const String userImage = "$_assetPath/user_image.png";
+  static const String taskTitle = "$_assetPath/task_title.png";
+  static const String taskDescription = "$_assetPath/task_description.png";
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/add_task_screen.dart';
 import 'package:task_manager/ui/screens/my_task_screen.dart';
 import 'package:task_manager/ui/screens/profile_details_screen.dart';
+import 'package:task_manager/ui/screens/task_details_screens.dart';
 
 class MainNavBarHolderScreen extends StatefulWidget {
   static const String name = '/main-nav-bar-holder';
@@ -17,7 +18,8 @@ class _MainNavBarHolderScreenState extends State<MainNavBarHolderScreen> {
   final List<Widget> _screens = [
     MyTaskScreen(),
     AddTaskScreen(),
-    ProfileDetailsScreen()
+    ProfileDetailsScreen(),
+    TaskDetailsScreens()
   ];
 
   @override
