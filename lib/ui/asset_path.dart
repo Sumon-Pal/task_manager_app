@@ -6,4 +6,5 @@ class AssetPath {
   static const String slider3 = "$_assetPath/Slider_Frame3.svg";
   static const String task_icon = "$_assetPath/task_icon.svg";
   static const String cardBackground = "$_assetPath/card_background.png";
+  static const String userImage = "$_assetPath/user_image.png";
 }
