@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/login_screen.dart';
+import 'package:task_manager/ui/screens/main_nav_holder_screen.dart';
+import 'package:task_manager/ui/screens/my_task_screen.dart';
 import 'package:task_manager/ui/screens/on_boarding_screen.dart';
 import 'package:task_manager/ui/screens/set_new_password_screen.dart';
 import 'package:task_manager/ui/screens/sign_up_screen.dart';
@@ -23,6 +25,8 @@ class TaskManager extends StatelessWidget {
         SignUpScreen.name : (context)=> SignUpScreen(),
        // VerifyEmailPage.name : (context)=> VerifyEmailPage(email: )
         PasswordSetupScreen.name : (context) => PasswordSetupScreen(),
+        //MyTaskScreen.name : (context)=> MyTaskScreen(),
+        MainNavBarHolderScreen.name : (context)=> MainNavBarHolderScreen(),
       },
     );
   }

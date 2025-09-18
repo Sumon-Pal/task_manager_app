@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:task_manager/ui/screens/main_nav_holder_screen.dart';
+import 'package:task_manager/ui/screens/my_task_screen.dart';
 import 'package:task_manager/ui/screens/sign_up_screen.dart';
 import 'package:task_manager/ui/screens/verify_email_page.dart';
 
@@ -27,47 +29,48 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
-    if (_formKey.currentState!.validate()) { // Validate the form
-      setState(() {
-        _isLoading = true;
-      });
-
-      // Replace with your actual API endpoint
-      const String apiUrl = 'https://api.example.com/login';
-
-      try {
-        final response = await http.post(
-          Uri.parse(apiUrl),
-          body: {
-            'email': _emailController.text,
-            'password': _passwordController.text,
-          },
-        );
-
-        if (response.statusCode == 200) {
-          // Handle successful login
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Login successful!')),
-          );
-          // Navigate to the home screen or appropriate page
-          // Navigator.pushReplacementNamed(context, '/home');
-        } else {
-          // Handle login failure
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login failed: ${response.body}')),
-          );
-        }
-      } catch (e) {
-        // Handle network or other errors
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('An error occurred: $e')),
-        );
-      } finally {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    }
+    Navigator.pushReplacementNamed(context, MainNavBarHolderScreen.name);
+    // if (_formKey.currentState!.validate()) { // Validate the form
+    //   setState(() {
+    //     _isLoading = true;
+    //   });
+    //
+    //   // Replace with your actual API endpoint
+    //   const String apiUrl = 'https://api.example.com/login';
+    //
+    //   try {
+    //     final response = await http.post(
+    //       Uri.parse(apiUrl),
+    //       body: {
+    //         'email': _emailController.text,
+    //         'password': _passwordController.text,
+    //       },
+    //     );
+    //
+    //     if (response.statusCode == 200) {
+    //       // Handle successful login
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         const SnackBar(content: Text('Login successful!')),
+    //       );
+    //       // Navigate to the home screen or appropriate page
+    //       // Navigator.pushReplacementNamed(context, '/home');
+    //     } else {
+    //       // Handle login failure
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: Text('Login failed: ${response.body}')),
+    //       );
+    //     }
+    //   } catch (e) {
+    //     // Handle network or other errors
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //       SnackBar(content: Text('An error occurred: $e')),
+    //     );
+    //   } finally {
+    //     setState(() {
+    //       _isLoading = false;
+    //     });
+    //   }
+    // }
   }
 
   @override
