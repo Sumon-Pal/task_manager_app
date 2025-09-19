@@ -65,6 +65,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       fontWeight: FontWeight.w400,
                     ),
                     border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
@@ -98,6 +99,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       fontWeight: FontWeight.w400,
                     ),
                     border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
@@ -134,7 +136,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       fontWeight: FontWeight.w400,
                     ),
                     border: OutlineInputBorder(
-                      //borderSide: BorderSide.none,
+                      borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),

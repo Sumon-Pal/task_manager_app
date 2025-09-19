@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/asset_path.dart';
+import 'package:task_manager/ui/screens/account_setting_screen.dart';
+import 'package:task_manager/ui/screens/help_and_support_screen.dart';
+import 'package:task_manager/ui/screens/my_profile_screen.dart';
+import 'package:task_manager/ui/screens/privacy_policy_screen.dart';
+import 'package:task_manager/ui/screens/tearms_and_condition_page.dart';
 
-class ProfileDetailsScreen extends StatelessWidget {
+class ProfileDetailsScreen extends StatefulWidget {
   const ProfileDetailsScreen({super.key});
 
+  @override
+  State<ProfileDetailsScreen> createState() => _ProfileDetailsScreenState();
+}
+
+class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,13 +83,19 @@ class ProfileDetailsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 72,),
+              const SizedBox(height: 72),
 
+              _buildMenuItem(
+                Icons.person_outline,
+                "My Profile",
+                _onTapMyProfile,
+              ),
+              _buildMenuItem(
+                Icons.settings_outlined,
+                "Account Setting",
+                _onTapAccountSetting,
+              ),
 
-
-              _buildMenuItem(Icons.person_outline, "My Profile"),
-              _buildMenuItem(Icons.settings_outlined, "Account Setting"),
-        
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Align(
@@ -89,17 +105,29 @@ class ProfileDetailsScreen extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.black54,
-                      fontSize: 16
+                      fontSize: 16,
                     ),
                   ),
                 ),
               ),
-        
-              _buildMenuItem(Icons.description_outlined, "Terms & Condition"),
-              _buildMenuItem(Icons.privacy_tip_outlined, "Privacy policy"),
-              _buildMenuItem(Icons.help_outline, "Help/Support"),
-              _buildMenuItem(Icons.logout, "Log Out"),
-        
+
+              _buildMenuItem(
+                Icons.description_outlined,
+                "Terms & Condition",
+                _onTapTermsAndCondition,
+              ),
+              _buildMenuItem(
+                Icons.privacy_tip_outlined,
+                "Privacy policy",
+                _onTapPrivacyPolicy,
+              ),
+              _buildMenuItem(
+                Icons.help_outline,
+                "Help/Support",
+                _onTapHelpOrSupport,
+              ),
+              _buildMenuItem(Icons.logout, "Log Out", _onTapLogOut),
+
               const SizedBox(height: 20),
             ],
           ),
@@ -108,8 +136,7 @@ class ProfileDetailsScreen extends StatelessWidget {
     );
   }
 
-
-  Widget _buildMenuItem(IconData icon, String title) {
+  Widget _buildMenuItem(IconData icon, String title, VoidCallback onTap) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -127,13 +154,52 @@ class ProfileDetailsScreen extends StatelessWidget {
       child: ListTile(
         leading: Icon(icon, color: const Color(0xFF84C000)),
         title: Text(title),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-        onTap: () {
-          // TODO: handle menu tap
-        },
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          size: 16,
+          color: Colors.grey,
+        ),
+        onTap: onTap,
       ),
     );
   }
+
+  void _onTapMyProfile() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyProfileScreen()),
+    );
+  }
+
+  void _onTapAccountSetting() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AccountSettingScreen()),
+    );
+  }
+
+  void _onTapTermsAndCondition() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TermsAndConditionsPage()),
+    );
+  }
+
+  void _onTapPrivacyPolicy() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()),
+    );
+  }
+
+  void _onTapHelpOrSupport() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SupportPage()),
+    );
+  }
+
+  void _onTapLogOut() {}
 }
 
 class TopCurveClipper extends CustomClipper<Path> {
@@ -144,7 +210,11 @@ class TopCurveClipper extends CustomClipper<Path> {
 
     // curve
     path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 50);
+      size.width / 2,
+      size.height,
+      size.width,
+      size.height - 50,
+    );
 
     path.lineTo(size.width, 0);
     path.close();
@@ -154,4 +224,3 @@ class TopCurveClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
-
