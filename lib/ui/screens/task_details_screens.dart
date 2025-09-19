@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/asset_path.dart';
+import 'package:task_manager/ui/screens/edit_task_screen.dart';
+import 'package:task_manager/ui/screens/my_task_screen.dart';
+
+import 'main_nav_holder_screen.dart';
 
 class TaskDetailsScreens extends StatefulWidget {
   const TaskDetailsScreens({super.key});
@@ -14,7 +18,9 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: _onTapBackIcon,
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, MainNavBarHolderScreen.name);
+          },
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: Color(0xFF84C000),
@@ -23,6 +29,7 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
         title: Text("Task Details"),
         centerTitle: true,
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Container(
@@ -44,17 +51,18 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      AssetPath.taskTitle,
-                      color: Color(0xFF84C000),
-                      width: 16,
-                      height: 16,
-                    ),
+                    // Image.asset(
+                    //   AssetPath.taskTitle,
+                    //   color: Color(0xFF84C000),
+                    //   width: 16,
+                    //   height: 16,
+                    // ),
+                    Icon(Icons.add_chart),
                     const SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
                           "Task Title",
@@ -77,18 +85,19 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
                 ),
                 const SizedBox(height: 10),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      AssetPath.taskDescription,
-                      color: Color(0xFF84C000),
-                      width: 16,
-                      height: 16,
-                    ),
+                    // Image.asset(
+                    //   AssetPath.taskDescription,
+                    //   color: Color(0xFF84C000),
+                    //   width: 16,
+                    //   height: 16,
+                    // ),
+                    Icon(Icons.multiline_chart),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        //mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             "Task Description",
@@ -96,10 +105,10 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            "Create a clean, responsive header section for the landing page. Include logo, navigation menu, search bar, and a primary call-to-action button. Ensure mobile responsiveness and use the brand green",
+                            "Create a clean, responsive header section for the landing page. "
+                            "Include logo, navigation menu, search bar, and a primary call-to-action button. "
+                            "Ensure mobile responsiveness and use the brand green",
                             style: TextTheme.of(context).titleMedium,
-                            // softWrap: true,
-                            // maxLines: 9,
                             overflow: TextOverflow.visible,
                           ),
                         ],
@@ -116,37 +125,33 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    Expanded(
-                      child: OutlinedButton.icon(
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          side: const BorderSide(color: Colors.red),
+                    OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
                         ),
-                        onPressed: () {},
-                        icon: const Icon(Icons.delete, color: Colors.red),
-                        label: const Text(
-                          "Delete Task",
-                          style: TextStyle(color: Colors.red),
-                        ),
+                        side: const BorderSide(color: Colors.red),
+                      ),
+                      onPressed: _onTapDeleteButton,
+                      icon: const Icon(Icons.delete, color: Colors.red),
+                      label: const Text(
+                        "Delete Task",
+                        style: TextStyle(color: Colors.red),
                       ),
                     ),
                     const SizedBox(width: 12),
-                    Expanded(
-                      child: OutlinedButton.icon(
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          side: const BorderSide(color: Colors.green),
+                    OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
                         ),
-                        onPressed: () {},
-                        icon: const Icon(Icons.edit, color: Colors.green),
-                        label: const Text(
-                          "Edit Task",
-                          style: TextStyle(color: Colors.green),
-                        ),
+                        side: const BorderSide(color: Colors.green),
+                      ),
+                      onPressed: _onTapEditButton,
+                      icon: const Icon(Icons.edit, color: Colors.green),
+                      label: const Text(
+                        "Edit Task",
+                        style: TextStyle(color: Colors.green),
                       ),
                     ),
                   ],
@@ -161,5 +166,11 @@ class _TaskDetailsScreensState extends State<TaskDetailsScreens> {
 
   void _onTapBackIcon() {
     Navigator.pop(context);
+  }
+
+  void _onTapDeleteButton() {}
+
+  void _onTapEditButton() {
+    Navigator.pushNamed(context, EditTaskScreen.name);
   }
 }

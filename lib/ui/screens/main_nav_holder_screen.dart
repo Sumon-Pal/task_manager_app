@@ -1,3 +1,4 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/add_task_screen.dart';
 import 'package:task_manager/ui/screens/my_task_screen.dart';
@@ -26,16 +27,19 @@ class _MainNavBarHolderScreenState extends State<MainNavBarHolderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_selectedIndex],
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: (int index) {
+      bottomNavigationBar: ConvexAppBar(
+        activeColor: Color(0xFF84C000),
+        backgroundColor: Colors.white,
+        color: Colors.black,
+        initialActiveIndex: _selectedIndex,
+        onTap: (int index) {
           _selectedIndex = index;
           setState(() {});
         },
-        destinations: [
-          NavigationDestination(icon:Icon(Icons.home), label: '',),
-          NavigationDestination(icon: Icon(Icons.add), label: "Add Task"),
-          NavigationDestination(icon: Icon(Icons.person), label: "Profile")
+        items: [
+          TabItem(icon:Icon(Icons.home), title: '',),
+          TabItem(icon: Icon(Icons.add), title: "Add Task"),
+          TabItem(icon: Icon(Icons.person), title: "Profile")
         ],
       ),
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:task_manager/ui/screens/edit_task_screen.dart';
 import 'package:task_manager/ui/screens/login_screen.dart';
 import 'package:task_manager/ui/screens/main_nav_holder_screen.dart';
 import 'package:task_manager/ui/screens/my_task_screen.dart';
@@ -17,6 +19,9 @@ class TaskManager extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: navigator,
+      theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
+      ),
       initialRoute: "/",
       routes: {
         SplashScreen.name: (context) => SplashScreen(),
@@ -25,8 +30,9 @@ class TaskManager extends StatelessWidget {
         SignUpScreen.name : (context)=> SignUpScreen(),
        // VerifyEmailPage.name : (context)=> VerifyEmailPage(email: )
         PasswordSetupScreen.name : (context) => PasswordSetupScreen(),
-        //MyTaskScreen.name : (context)=> MyTaskScreen(),
+        MyTaskScreen.name : (context)=> MyTaskScreen(),
         MainNavBarHolderScreen.name : (context)=> MainNavBarHolderScreen(),
+        EditTaskScreen.name : (context)=> EditTaskScreen(),
       },
     );
   }

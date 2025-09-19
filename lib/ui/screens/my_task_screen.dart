@@ -4,7 +4,7 @@ import 'package:task_manager/ui/screens/task_details_screens.dart';
 
 class MyTaskScreen extends StatefulWidget {
   const MyTaskScreen({super.key});
-
+static const String name = "/my-task";
   @override
   State<MyTaskScreen> createState() => _MyTaskScreenState();
 }
@@ -15,7 +15,6 @@ class _MyTaskScreenState extends State<MyTaskScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          // 👈 makes the whole page scrollable
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

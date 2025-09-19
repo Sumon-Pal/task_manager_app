@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AddTaskScreen extends StatefulWidget {
-  const AddTaskScreen({super.key});
-
+class EditTaskScreen extends StatefulWidget {
+  const EditTaskScreen({super.key});
+  static const String name = "/edit-task";
   @override
-  State<AddTaskScreen> createState() => _AddTaskScreenState();
+  State<EditTaskScreen> createState() => _EditTaskScreenState();
 }
 
-class _AddTaskScreenState extends State<AddTaskScreen> {
+class _EditTaskScreenState extends State<EditTaskScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _taskNameController = TextEditingController();
   final TextEditingController _taskDescriptionController =
-      TextEditingController();
+  TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: Color(0xFF84C000),
           ),
         ),
-        title: Text("Add Task"),
+        title: Text("Edit Task"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -69,10 +71,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   expands: false,
                   maxLines: null,
                   keyboardType: TextInputType.multiline,
-                  //maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   decoration: InputDecoration(
                     hintText:
-                        "e.g. Include logo, navigation, and CTA button with brand color",
+                    "e.g. Include logo, navigation, and CTA button with brand color",
                     hintStyle: TextTheme.of(context).titleMedium,
                     fillColor: Color(0xFFF7FFEF),
                     filled: true,
@@ -88,7 +90,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed:_onTapSaveButton,
+                    onPressed:_onTapUpdateButton,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF84C000),
                       padding: EdgeInsets.all(10),
@@ -97,7 +99,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       ),
                     ),
                     child: Text(
-                      "Save Task",
+                      "Update Task",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
@@ -113,5 +115,5 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       ),
     );
   }
-  void _onTapSaveButton(){}
+  void _onTapUpdateButton(){}
 }
