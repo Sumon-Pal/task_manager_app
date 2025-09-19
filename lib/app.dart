@@ -20,6 +20,7 @@ class TaskManager extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: navigator,
       theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFFAFBF9),
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       initialRoute: "/",

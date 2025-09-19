@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 20),
               _buildTextField('Address', 'e.g. 1234 Elm Street, Springfield, IL', _addressController),
               const SizedBox(height: 20),
-              _buildPasswordField('Password', '••••••••', _passwordController),
+              _buildPasswordField('Password', '•••••••', _passwordController),
               const SizedBox(height: 20),
               _buildPasswordField('Confirm Password', '••••••••', _confirmPasswordController),
               const SizedBox(height: 12),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screens/change_password_screen.dart';
 
 class AccountSettingScreen extends StatefulWidget {
   const AccountSettingScreen({super.key});
@@ -49,9 +50,11 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
                 ),
                 trailing: Icon(
                   Icons.keyboard_arrow_right_sharp,
-                  color: Color(0xFF84C000),
+                  color: Color(0xFFF7FFEF),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangePasswordScreen()));
+                },
               ),
             ),
             const SizedBox(height: 8),
