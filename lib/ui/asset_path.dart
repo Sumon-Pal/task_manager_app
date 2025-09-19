@@ -9,4 +9,6 @@ class AssetPath {
   static const String userImage = "$_assetPath/user_image.png";
   static const String taskTitle = "$_assetPath/task_title.png";
   static const String taskDescription = "$_assetPath/task_description.png";
+  static const String profileTopBackground = "$_assetPath/profile_top_background.png";
+  static const String profileMan = "$_assetPath/profile_man.png";
 }
