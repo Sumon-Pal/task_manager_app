@@ -19,9 +19,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {},
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: Color(0xFF84C000),
@@ -117,3 +115,4 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
   }
   void _onTapUpdateButton(){}
 }
+

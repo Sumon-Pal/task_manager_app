@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:task_manager/ui/screens/account_setting_screen.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -113,5 +114,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       ),
     );
   }
-  void _onTapSaveButton(){}
+  void _onTapSaveButton(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountSettingScreen()));
+  }
 }
