@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/asset_path.dart';
 import 'package:task_manager/ui/screens/account_setting_screen.dart';
+import 'package:task_manager/ui/screens/edit_profile_screen.dart';
 import 'package:task_manager/ui/screens/help_and_support_screen.dart';
 import 'package:task_manager/ui/screens/my_profile_screen.dart';
 import 'package:task_manager/ui/screens/privacy_policy_screen.dart';

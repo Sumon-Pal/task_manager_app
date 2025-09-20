@@ -50,7 +50,7 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
                 ),
                 trailing: Icon(
                   Icons.keyboard_arrow_right_sharp,
-                  color: Color(0xFFF7FFEF),
+                  color: Color(0xFF84C000),
                 ),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangePasswordScreen()));
